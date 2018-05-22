@@ -41,28 +41,48 @@ trait ConsoleOutputTrait
 
     public function info($message, $verbosityLevel = 'v')
     {
-        $this->checkVerbosity($verbosityLevel) && $this->writeln(STDOUT, $message, 'blue');
+        if (php_sapi_name() === 'cli') {
+            $this->checkVerbosity($verbosityLevel) && $this->writeln(STDOUT, $message, 'blue');
+        } else {
+            $this->checkVerbosity($verbosityLevel) && \Log::info($message);
+        }
     }
 
     public function success($message, $verbosityLevel = 'v')
     {
-        $this->checkVerbosity($verbosityLevel) && $this->writeln(STDOUT, $message, 'green');
+        if (php_sapi_name() === 'cli') {
+            $this->checkVerbosity($verbosityLevel) && $this->writeln(STDOUT, $message, 'green');
+        } else {
+            $this->checkVerbosity($verbosityLevel) && \Log::debug('SUCCESS: ' .$message);
+        }
     }
 
     public function warn($message, $verbosityLevel = 'normal')
     {
-        $this->checkVerbosity($verbosityLevel) && $this->writeln(STDERR, $message, 'orange');
+        if (php_sapi_name() === 'cli') {
+            $this->checkVerbosity($verbosityLevel) && $this->writeln(STDERR, $message, 'orange');
+        } else {
+            $this->checkVerbosity($verbosityLevel) && \Log::warning($message);
+        }
     }
 
     public function error($message, $verbosityLevel = 'normal')
     {
-        $this->checkVerbosity($verbosityLevel) && $this->writeln(STDERR, $message, 'red');
+        if (php_sapi_name() === 'cli') {
+            $this->checkVerbosity($verbosityLevel) && $this->writeln(STDERR, $message, 'red');
+        } else {
+            $this->checkVerbosity($verbosityLevel) && \Log::error($message);
+        }
     }
 
     public function fatal($message, $verbosityLevel = 'normal')
     {
-        $this->checkVerbosity($verbosityLevel) && $this->writeln(STDERR, $message, 'red');
-        exit(1);
+        if (php_sapi_name() === 'cli') {
+            $this->checkVerbosity($verbosityLevel) && $this->writeln(STDERR, $message, 'red');
+            exit(1);
+        } else {
+            $this->checkVerbosity($verbosityLevel) && \Log::emergency($message);
+        }
     }
 
     protected function checkVerbosity($verbosityLevel)
