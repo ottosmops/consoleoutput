@@ -18,6 +18,9 @@ error($message, $verbosityLevel = 'normal') // red
 fatal($message, $verbosityLevel = 'normal') //red and exits
 ```
 
+## Version 1.1 
+To avoid errors, the methods check if you call them from the command line. Otherwise the Laravel-Log-Methods are called.
+
 ## Installation
 
 ```bash
