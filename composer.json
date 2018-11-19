@@ -6,7 +6,10 @@
         "ottosmops",
         "console",
         "output",
-        "laravel"
+        "laravel",
+        "symfony",
+        "php",
+        "cli"
     ],
     "authors": [
         {
