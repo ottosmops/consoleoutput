@@ -1,4 +1,4 @@
-# A trait to split Laravel Console Output to stdout and stderr
+# A trait to split Symfony/Laravel Console Output to stdout and stderr
 
 [![GitHub license](https://img.shields.io/github/license/ottosmops/consoleoutput.svg)](https://github.com/ottosmops/consoleoutput/blob/master/LICENSE.md)
 [![Latest Stable Version](https://poser.pugx.org/ottosmops/consoleoutput/v/stable?format=flat-square)](https://packagist.org/packages/ottosmops/consoleoutput)
