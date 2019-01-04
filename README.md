@@ -16,11 +16,11 @@ composer require ottosmops/consoleoutput
 
 ## Usage 
 
-You only pull in the trait. 
+Just pull in the trait, and you are ready to go. 
 
 ```php 
 class TestCommand extents Illuminate\Console\Command
-{
+{You
      use \Ottosmops\Consoleoutput\ConsoleOutputTrait;
      
      ...
