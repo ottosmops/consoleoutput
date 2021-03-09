@@ -96,7 +96,8 @@ trait ConsoleOutputTrait
     protected function writeln($channel, $message, $color = "")
     {
         $color = $this->colors[$color];
-        STDERR == $channel && fwrite(STDERR, "$color" . $message . PHP_EOL);
-        STDOUT == $channel && fwrite(STDOUT, "$color" . $message . PHP_EOL);
+        $black = $this->colors['black'];
+        STDERR == $channel && fwrite(STDERR, "$color" . $message . $black. PHP_EOL);
+        STDOUT == $channel && fwrite(STDOUT, "$color" . $message . $black. PHP_EOL);
     }
 }
